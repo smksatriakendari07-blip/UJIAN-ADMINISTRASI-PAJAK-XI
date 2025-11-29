@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aplikasi_ujian</title>
+
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Header kecil di atas */
+        .header {
+            width: 100%;
+            padding: 10px;
+            background: #510375;
+            color: #fff;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* Iframe full screen */
+        iframe {
+            width: 100vw;
+            height: calc(100vh - 50px);
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">APLIKASI UJIAN</div>
+
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc9FidWF2GHtHUEb84wA4UOk5H2UacKQdarspwdTXUoWhJV5w/viewform?usp=header"></iframe>
+
+<script>
+let pelanggaran = 0;
+
+document.addEventListener("visibilitychange", function () {
+    if (document.hidden) {
+        pelanggaran++;
+
+        if (pelanggaran >= 1) {
+            document.body.innerHTML = `
+                <h1 style='color:red; text-align:center; margin-top:50px; font-size:40px;'>HALAMAN UJIAN TERKUNCI</h1>
+                <p style='text-align:center; font-size:20px;'>Anda terdeteksi meninggalkan halaman.</p>
+            `;
+        }
+    }
+});
+</script>
+
+</body>
+</html>
